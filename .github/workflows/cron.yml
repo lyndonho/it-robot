@@ -1,10 +1,10 @@
 name: Automation Robot
-on: 
+on:
   push: {}
   schedule:
-    - cron:  '*/1 * * * *'
-    
-jobs: 
+    - cron:  '*/10 * * * *'
+
+jobs:
   run-automation-job:
     runs-on: ubuntu-latest
     steps:
