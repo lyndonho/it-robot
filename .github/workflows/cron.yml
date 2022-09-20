@@ -2,7 +2,7 @@ name: Automation Robot
 on: 
   push: {}
   schedule:
-    - cron:  '*/6 * * * *'
+    - cron:  '*/1 * * * *'
     
 jobs: 
   run-automation-job:
