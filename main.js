@@ -11,6 +11,72 @@ async function main() {
     headless: false,
   });
   const page = await browser.newPage();
+  await page.goto("https://ithelp.ithome.com.tw/users/20151567/ironman/5529");
+
+  let index = 0;
+  while (true) {
+    const links = await page.$$(".qa-list .qa-list__title a");
+
+    const link = links[index];
+
+    if (!link) break;
+
+    await Promise.all([
+      page.waitForNavigation(),
+      link.click(),
+      //
+    ]);
+
+    await wait(600);
+
+    await page.goBack();
+
+    index += 1;
+  }
+
+  const counts = await page.$$(
+    ".qa-list .qa-condition--change .qa-condition__count"
+  );
+  for (const count of counts) {
+    console.log(await count.evaluate((el) => el.textContent));
+  }
+
+  await browser.close();
+  
+  const page = await browser.newPage();
+  await page.goto("https://ithelp.ithome.com.tw/users/20151567/ironman/5529?page=2");
+
+  let index = 0;
+  while (true) {
+    const links = await page.$$(".qa-list .qa-list__title a");
+
+    const link = links[index];
+
+    if (!link) break;
+
+    await Promise.all([
+      page.waitForNavigation(),
+      link.click(),
+      //
+    ]);
+
+    await wait(600);
+
+    await page.goBack();
+
+    index += 1;
+  }
+
+  const counts = await page.$$(
+    ".qa-list .qa-condition--change .qa-condition__count"
+  );
+  for (const count of counts) {
+    console.log(await count.evaluate((el) => el.textContent));
+  }
+
+  await browser.close();
+  
+  const page = await browser.newPage();
   await page.goto("https://ithelp.ithome.com.tw/users/20151567/ironman/5529?page=3");
 
   let index = 0;
