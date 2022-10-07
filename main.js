@@ -96,11 +96,11 @@ async function main() {
     index3 += 1;
   }
 
-  const counts2 = await page2.$$(
+  const counts3 = await page3.$$(
     ".qa-list .qa-condition--change .qa-condition__count"
   );
-  for (const count2 of counts2) {
-    console.log(await count2.evaluate((el) => el.textContent));
+  for (const count3 of counts3) {
+    console.log(await count3.evaluate((el) => el.textContent));
   }
 
   await browser.close();
